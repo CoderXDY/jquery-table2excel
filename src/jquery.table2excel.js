@@ -45,16 +45,16 @@
             // get contents of table except for exclude
             $(e.element).each( function(i,o) {
                 var tempRows = "";
-                $(o).find("tr").not(e.settings.exclude).each(function (i,o) {
+                $(o).find("tr").not(e.settings.exclude).each(function (i,p) {
                     tempRows += "<tr>";
                     $(p).find("td").not(e.settings.exclude).each(function (i,q) {
-                        var flag = $(q).find(e.settings.exclude) // does this <td> have something with an exclude class
+                        var flag = $(q).find(e.settings.exclude); // does this <td> have something with an exclude class
                         if(flag.length >= 1) {
-                            tempRows += "<td> </td>" // exclude it!!
+                            tempRows += "<td> </td>"; // exclude it!!
                         } else {
-                            tempRows += "<td>" + $(q).html() + "</td>"
+                            tempRows += "<td>" + $(q).html() + "</td>";
                         }
-                    })
+                    });
                      
                     tempRows += "</tr>";
                 });
